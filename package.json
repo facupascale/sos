@@ -22,13 +22,6 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "lint-staged": {
-    "**/*.{ts,tsx}": [
-      "prettier --write",
-      "eslint --max-warnings 0 .",
-      "commitlint -E HUSKY_GIT_PARAMS"
-    ]
-  },
   "jest": {
     "preset": "jest-expo"
   },

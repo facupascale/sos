@@ -15,6 +15,11 @@
       "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
     }
   },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
   "lint-staged": {
     "**/*.{ts,tsx}": [
       "prettier --write",
@@ -59,10 +64,5 @@
     "react-test-renderer": "18.2.0",
     "typescript": "~5.3.3"
   },
-  "private": true,
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  }
+  "private": true
 }

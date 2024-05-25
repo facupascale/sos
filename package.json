@@ -10,17 +10,16 @@
     "lint": "eslint .",
     "test": "jest --watchAll"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
-    }
-  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": [
+      "prettier --write",
+      "eslint --max-warnings 0 ."
+    ]
   },
   "jest": {
     "preset": "jest-expo"

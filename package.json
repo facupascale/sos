@@ -5,9 +5,16 @@
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
+    "ios": "expo start --ios --simulator='iPhone 15 Pro'",
+    "prepare": "husky",
+    "lint": "eslint .",
     "test": "jest --watchAll"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": [
+      "prettier --write",
+      "eslint --max-warnings 0 ."
+    ]
   },
   "jest": {
     "preset": "jest-expo"
@@ -34,8 +41,14 @@
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@types/react": "~18.2.45",
+    "babel-plugin-module-resolver": "^5.0.2",
+    "eslint": "^9.3.0",
+    "eslint-config-universe": "^12.1.0",
+    "husky": "^9.0.11",
     "jest": "^29.2.1",
     "jest-expo": "~51.0.2",
+    "lint-staged": "^15.2.5",
+    "prettier": "^3.2.5",
     "react-test-renderer": "18.2.0",
     "typescript": "~5.3.3"
   },

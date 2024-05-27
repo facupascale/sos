@@ -5,11 +5,10 @@ import EditScreenInfo from '@/components/EditScreenInfo'
 import { Text, View } from '@/components/Themed'
 
 export default function ModalScreen() {
-  const hola = ''
-  const hola = ''
+  const hola = 'dsa'
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>hola</Text>
+      <Text style={styles.title}>{hola}</Text>
       <View
         style={styles.separator}
         lightColor="#eee"

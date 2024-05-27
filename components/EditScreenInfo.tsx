@@ -8,7 +8,6 @@ import { Text, View } from './Themed'
 import Colors from '@/constants/Colors'
 
 export default function EditScreenInfo({ path }: { path: string }) {
-  const hola = ''
   return (
     <View>
       <View style={styles.getStartedContainer}>

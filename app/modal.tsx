@@ -9,7 +9,7 @@ export default function ModalScreen() {
   const hola = ''
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Modal</Text>
+      <Text style={styles.title}>hola</Text>
       <View
         style={styles.separator}
         lightColor="#eee"

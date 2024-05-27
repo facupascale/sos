@@ -8,6 +8,7 @@ import { Text, View } from './Themed'
 import Colors from '@/constants/Colors'
 
 export default function EditScreenInfo({ path }: { path: string }) {
+  const hola = ''
   return (
     <View>
       <View style={styles.getStartedContainer}>
@@ -16,7 +17,7 @@ export default function EditScreenInfo({ path }: { path: string }) {
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)"
         >
-          Open up the code for this screen:
+          Open up th
         </Text>
 
         <View

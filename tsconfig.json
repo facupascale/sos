@@ -27,6 +27,8 @@
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
     "app/+html.tsxy",
-    "app/+html.tsxy"
+    "app/+html.tsxy",
+    "constants/Colors.t",
+    "constants/Colors.t"
   ]
 }

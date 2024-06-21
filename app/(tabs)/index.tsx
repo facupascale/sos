@@ -1,8 +1,10 @@
+import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, View, Text } from 'react-native'
 
 export default function TabOneScreen() {
   return (
     <View style={styles.container}>
+      <StatusBar style="light" />
       <Text style={styles.title}>Tab One</Text>
       <View style={styles.separator} />
     </View>

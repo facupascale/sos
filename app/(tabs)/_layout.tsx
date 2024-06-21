@@ -2,9 +2,12 @@ import { Link, Tabs } from 'expo-router'
 import React from 'react'
 import { Pressable, View, Text } from 'react-native'
 
+import { Colors } from '@/constants'
+
 export default function TabLayout() {
   return (
     <Tabs
+      sceneContainerStyle={{ backgroundColor: Colors.primary }}
       screenOptions={
         {
           // tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
@@ -18,6 +21,10 @@ export default function TabLayout() {
         options={{
           title: 'Tab One',
           // tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarStyle: { borderBottomWidth: 0 },
+          headerStyle: {
+            backgroundColor: Colors.primary,
+          },
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>

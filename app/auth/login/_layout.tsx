@@ -4,17 +4,8 @@ import { View, Text } from 'react-native'
 const Login = () => {
   return (
     <View style={{ flex: 1 }}>
-      <View
-        style={{
-          backgroundColor: 'red',
-          width: '50%',
-          height: '50%',
-          alignItems: 'center',
-          justifyContent: 'center',
-          alignSelf: 'center',
-        }}
-      >
-        <Text>Login</Text>
+      <View className="bg-red-700 w-2/5 h-2/5 self-center align-center justify-center">
+        <Text className="text-3xl  bg-sky-800 self-center">Login</Text>
         <Link replace href="/auth/register/createAccount">
           Go to register
         </Link>

@@ -1,4 +1,2 @@
-#!/bin/sh
-exec /bin/bash "$(dirname "$0")/husky.sh"
 
 exec </dev/tty && npx cz --hook || true

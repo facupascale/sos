@@ -1,4 +1,1 @@
-#!/bin/sh
-exec /bin/bash "$(dirname "$0")/husky.sh"
-
 npx commitlint --edit $1

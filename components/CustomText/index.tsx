@@ -1,20 +1,50 @@
-import { Text } from 'react-native'
+import clsx from 'clsx'
+import { Text, TextProps } from 'react-native'
 
-import { FontWeights, FontSize } from '@/constants'
+import { FontSize } from '@/constants'
+import { ColorsType } from '@/types'
 
-interface CustomTextProps {
+interface CustomTextProps extends TextProps {
   size: keyof typeof FontSize
-  weight: keyof typeof FontWeights
-  children: string
+  children: React.ReactNode
+  italic?: 'italic' | 'normal'
+  color?: ColorsType
+  className?: string
 }
 
 const CustomText = ({
   size,
-  weight = 'regular',
+  italic = 'normal',
+  color = 'violet',
   children,
+  className,
+  ...props
 }: CustomTextProps) => {
+  const colorPicked = {
+    primary: 'text-custom-primary',
+    pDarker: 'text-custom-pDarker',
+    black: 'text-custom-black',
+    grey: 'text-custom-grey',
+    white: 'text-custom-white',
+    green: 'text-custom-green',
+    red: 'text-custom-red',
+    yellow: 'text-custom-yellow',
+    violet: 'text-custom-violet',
+  }
+
+  const fontStyle = {
+    italic: 'font-roboto-mediumItalic',
+    normal: 'font-roboto-medium',
+  }
+  const customClassName = clsx(colorPicked[color], fontStyle[italic], className)
   return (
-    <Text style={{ fontSize: FontSize[size], fontFamily: FontWeights[weight] }}>
+    <Text
+      style={{
+        fontSize: FontSize[size],
+      }}
+      className={customClassName}
+      {...props}
+    >
       {children}
     </Text>
   )

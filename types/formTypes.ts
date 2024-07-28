@@ -1,4 +1,4 @@
-export type FormFields = 'login' | 'register'
+export type FormFields = 'login' | 'register' | 'verification'
 export type InputField = {
   key: string
   value: string

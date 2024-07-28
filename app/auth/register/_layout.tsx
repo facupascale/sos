@@ -12,7 +12,7 @@ const Auth = () => {
   //  TODO: MODIFICAR EL BOTON DE GO BACK PARA QUE SE VEA BONITO
   return (
     <Stack
-      screenOptions={({ navigation }) => ({
+      screenOptions={() => ({
         contentStyle: { backgroundColor: Colors.primary },
         headerStyle: { backgroundColor: Colors.primary },
         headerLeft: () => (
@@ -27,10 +27,15 @@ const Auth = () => {
         options={{
           headerTitle: 'Registro',
           headerTintColor: 'white',
-          headerBackButtonMenuEnabled: true,
         }}
       />
-      <Stack.Screen name="verification" />
+      <Stack.Screen
+        name="verification"
+        options={{
+          headerTitle: 'Verificacion de cuenta',
+          headerTintColor: 'white',
+        }}
+      />
     </Stack>
   )
 }

@@ -75,6 +75,15 @@ const initialFormState: { [key in FormFields]: InputField[] } = {
       errorMsg: '',
     },
   ],
+  verification: [
+    {
+      key: 'verificationCode',
+      value: '',
+      placeholder: 'Codigo de verificación',
+      isError: false,
+      errorMsg: '',
+    },
+  ],
 }
 
 export { initialFormState }

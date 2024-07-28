@@ -1,5 +1,4 @@
 import { useRouter } from 'expo-router'
-import { useRef } from 'react'
 import { View, Image, SafeAreaView } from 'react-native'
 
 import {
@@ -8,15 +7,14 @@ import {
   CustomTextInput,
   CustomDivider,
   CustomKeyboardAvoiding,
-  CustomTextInputRef,
 } from '@/components'
-import { useFormInputs } from '@/hooks'
+import { useFormInputs, useDynamicRefs } from '@/hooks'
 
+// TODO: falta agregar validaciones de los campos ingresados, manejo de esos datos en el backend
 const Login = () => {
   const router = useRouter()
-  const { inputs } = useFormInputs()
-  const emailRef = useRef<CustomTextInputRef>(null)
-  const passwordRef = useRef<CustomTextInputRef>(null)
+  const { inputs } = useFormInputs('login')
+  const { refs, focusNextField } = useDynamicRefs(inputs)
 
   const navigateToRegister = () => {
     router.push('/auth/register')
@@ -38,20 +36,19 @@ const Login = () => {
           </CustomText>
         </View>
         <CustomKeyboardAvoiding className="w-full h-3/5 items-center justify-around">
-          {inputs.login.map((input, index) => (
+          {inputs.map((input, index) => (
             <CustomTextInput
+              key={input.key}
               placeholder={input.placeholder}
               placeholderClassName="text-custom-red"
               isError={input.isError}
-              errorMsg={input.errorMessage}
+              errorMsg={input.errorMsg}
               isSecure={input.key.toLowerCase().includes('password')}
-              ref={input.key === 'email' ? emailRef : passwordRef}
+              ref={refs[input.key]}
               onSubmitEditing={() =>
-                input.key === 'email' ? passwordRef.current?.focus() : null
+                inputs.length - 1 !== index ? focusNextField(input.key) : null
               }
-              returnKeyLabel={
-                index !== inputs.login.length - 1 ? 'next' : 'done'
-              }
+              returnKeyLabel={index !== inputs.length - 1 ? 'next' : 'done'}
             />
           ))}
           <CustomButton

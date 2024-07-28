@@ -15,7 +15,7 @@ interface CustomTextProps extends TextProps {
 const CustomText = ({
   size,
   italic = 'normal',
-  color = 'violet',
+  color = 'white',
   children,
   className,
   ...props

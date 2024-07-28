@@ -1,6 +1,6 @@
+import { clsx } from 'clsx'
 import React from 'react'
 import { View } from 'react-native'
-import { clsx } from 'clsx'
 
 interface CustomDividerProps {
   width?: 'half' | 'full'

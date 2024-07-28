@@ -1,5 +1,6 @@
+import { FontAwesome } from '@expo/vector-icons'
 import { Stack, useRouter } from 'expo-router'
-import { TouchableOpacity, Text } from 'react-native'
+import { TouchableOpacity } from 'react-native'
 
 import { Colors } from '@/constants'
 
@@ -16,7 +17,7 @@ const Auth = () => {
         headerStyle: { backgroundColor: Colors.primary },
         headerLeft: () => (
           <TouchableOpacity onPress={() => router.back()}>
-            <Text style={{ marginRight: 10 }}>Go to Signup</Text>
+            <FontAwesome name="arrow-left" size={20} color="white" />
           </TouchableOpacity>
         ),
       })}

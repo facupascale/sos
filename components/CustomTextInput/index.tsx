@@ -4,7 +4,8 @@ import { TextInput, TextInputProps, View } from 'react-native'
 
 import { CustomText } from '../CustomText'
 
-interface CustomTextInputProps extends TextInputProps {
+export interface CustomTextInputProps extends TextInputProps {
+  key: string
   isError: boolean
   errorMsg: string
   isSecure: boolean
@@ -16,7 +17,7 @@ export type CustomTextInputRef = {
 
 const CustomTextInput = forwardRef<CustomTextInputRef, CustomTextInputProps>(
   ({ isError, errorMsg, isSecure, ...props }, ref) => {
-    const [secureTextEntry, setSecureTextEntry] = useState<boolean>(false)
+    const [secureTextEntry, setSecureTextEntry] = useState<boolean>(true)
     const localRef = useRef<TextInput>(null)
 
     useImperativeHandle(ref, () => ({
@@ -25,7 +26,7 @@ const CustomTextInput = forwardRef<CustomTextInputRef, CustomTextInputProps>(
       },
     }))
     return (
-      <View className="w-4/5 flex-row justify-center align-center">
+      <View className="w-4/5 mb-5 flex-row justify-center align-center">
         <TextInput
           ref={localRef}
           {...props}
@@ -34,7 +35,7 @@ const CustomTextInput = forwardRef<CustomTextInputRef, CustomTextInputProps>(
         />
         {isSecure && (
           <FontAwesome
-            name={secureTextEntry ? 'eye' : 'eye-slash'}
+            name={secureTextEntry ? 'eye-slash' : 'eye'}
             size={20}
             color="grey"
             onPress={() => setSecureTextEntry(!secureTextEntry)}

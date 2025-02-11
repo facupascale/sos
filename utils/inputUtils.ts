@@ -1,38 +1,32 @@
-import { InputField } from '../hooks/useFormInputs'
+import { InputField } from '@/types'
 
-export const getInputErrorStatus = (
-  inputs: InputField[],
-  key: string,
-): boolean => {
+const getInputErrorStatus = (inputs: InputField[], key: string): boolean => {
   const input = inputs.find((input) => input.key === key)
   return input ? input.isError : false
 }
 
-export const getInputErrorMessage = (
-  inputs: InputField[],
-  key: string,
-): string => {
+const getInputErrorMessage = (inputs: InputField[], key: string): string => {
   const input = inputs.find((input) => input.key === key)
-  return input ? input.errorMessage : ''
+  return input ? input.errorMsg : ''
 }
 
-export const getInputValue = (inputs: InputField[], key: string): string => {
+const getInputValue = (inputs: InputField[], key: string): string => {
   const input = inputs.find((input) => input.key === key)
   return input ? input.value : ''
 }
 
-export const setInputError = (
+const setInputError = (
   inputs: InputField[],
   key: string,
   isError: boolean,
-  errorMessage: string = '',
+  errorMsg: string = '',
 ): InputField[] => {
   return inputs.map((input) =>
-    input.key === key ? { ...input, isError, errorMessage } : input,
+    input.key === key ? { ...input, isError, errorMsg } : input,
   )
 }
 
-export const setInputValue = (
+const setInputValue = (
   inputs: InputField[],
   key: string,
   value: string,
@@ -42,15 +36,22 @@ export const setInputValue = (
   )
 }
 
-// Ejemplo de validación de email
-export const validateEmail = (email: string): boolean => {
+const validateEmail = (email: string): boolean => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   return emailRegex.test(email)
 }
 
-// Ejemplo de validación de contraseña
-export const validatePassword = (password: string): boolean => {
-  // Mínimo 8 caracteres, al menos una letra y un número
+const validatePassword = (password: string): boolean => {
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
   return passwordRegex.test(password)
+}
+
+export const InputUtils = {
+  validateEmail,
+  validatePassword,
+  getInputErrorStatus,
+  getInputErrorMessage,
+  getInputValue,
+  setInputError,
+  setInputValue,
 }

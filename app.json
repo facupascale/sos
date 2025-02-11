@@ -2,7 +2,7 @@
   "expo": {
     "name": "SOS",
     "slug": "SOS",
-    "description": "With this app, you can send notifications to your friends. You can also get notifications when someone sends you a SOS.",
+    "description": "With this app, you can send SOS notifications to your friends. You can also get notifications when someone sends you a SOS.",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -26,9 +26,6 @@
       "backgroundColor": "#2C282A"
     },
     "primaryColor": "#2C282A",
-    "plugins": ["expo-router", "expo-font"],
-    "experiments": {
-      "typedRoutes": true
-    }
+    "plugins": ["expo-router", "expo-font"]
   }
 }

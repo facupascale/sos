@@ -21,12 +21,5 @@
       "@/*": ["./*"]
     }
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    ".expo/types/**/*.ts",
-    "expo-env.d.ts",
-    "app/+html.tsxy",
-    "app/+html.tsxy"
-  ]
+  "include": ["**/*.ts", "**/*.tsx", "app/+html.tsx", "nativewind-env.d.ts"]
 }

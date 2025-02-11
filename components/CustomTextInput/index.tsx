@@ -17,7 +17,7 @@ export type CustomTextInputRef = {
 
 const CustomTextInput = forwardRef<CustomTextInputRef, CustomTextInputProps>(
   ({ isError, errorMsg, isSecure, ...props }, ref) => {
-    const [secureTextEntry, setSecureTextEntry] = useState<boolean>(true)
+    const [secureTextEntry, setSecureTextEntry] = useState<boolean>(!!isSecure)
     const localRef = useRef<TextInput>(null)
 
     useImperativeHandle(ref, () => ({
@@ -26,23 +26,26 @@ const CustomTextInput = forwardRef<CustomTextInputRef, CustomTextInputProps>(
       },
     }))
     return (
-      <View className="w-4/5 mb-5 flex-row justify-center align-center">
-        <TextInput
-          ref={localRef}
-          {...props}
-          className="bg-custom-white w-full h-10 rounded px-2 font-roboto-mediumItalic"
-          secureTextEntry={secureTextEntry}
-        />
-        {isSecure && (
-          <FontAwesome
-            name={secureTextEntry ? 'eye-slash' : 'eye'}
-            size={20}
-            color="grey"
-            onPress={() => setSecureTextEntry(!secureTextEntry)}
-            className="self-center absolute right-0 mr-3"
+      <View className="w-[90%] mb-5 flex-col justify-center align-center">
+        <View className="relative w-full">
+          <TextInput
+            ref={localRef}
+            autoCapitalize="none"
+            {...props}
+            className="bg-custom-white w-full h-10 rounded px-2 font-roboto-mediumItalic"
+            secureTextEntry={secureTextEntry}
           />
-        )}
-        {!isError && (
+          {isSecure && (
+            <FontAwesome
+              name={secureTextEntry ? 'eye-slash' : 'eye'}
+              size={20}
+              color="grey"
+              onPress={() => setSecureTextEntry(!secureTextEntry)}
+              className="absolute right-0 top-1/2 -translate-y-1/2 mr-3"
+            />
+          )}
+        </View>
+        {isError && (
           <CustomText size={14} color="red" className="mt-1 font-semibold">
             {errorMsg}
           </CustomText>
